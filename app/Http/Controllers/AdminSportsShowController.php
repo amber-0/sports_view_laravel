@@ -2,17 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\SportsShow;
+use App\Models\AdminSportsShow;
 use Illuminate\Http\Request;
 
-class SportsShowController extends Controller
+class AdminSportsShowController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('user_index');
+        return view('welcome');
     }
 
     /**
@@ -34,7 +34,7 @@ class SportsShowController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(SportsShow $sportsShow)
+    public function show(AdminSportsShow $adminSportsShow)
     {
         //
     }
@@ -42,7 +42,7 @@ class SportsShowController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(SportsShow $sportsShow)
+    public function edit(AdminSportsShow $adminSportsShow)
     {
         //
     }
@@ -50,7 +50,7 @@ class SportsShowController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, SportsShow $sportsShow)
+    public function update(Request $request, AdminSportsShow $adminSportsShow)
     {
         //
     }
@@ -58,7 +58,7 @@ class SportsShowController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(SportsShow $sportsShow)
+    public function destroy(AdminSportsShow $adminSportsShow)
     {
         //
     }
