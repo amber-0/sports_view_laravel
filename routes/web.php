@@ -6,27 +6,26 @@ use App\Http\Controllers\SportsShowController;
 use App\Http\Controllers\AdminSportsShowController;
 
 
-// ユーザー側のコントローラー
-// Route::get('/', function () {
-//     return view('user_index');
-// });
 
 Route::prefix('user')
 ->controller(SportsShowController::class)
 ->name('user.')
 ->group(function(){
 	Route::get('/', 'index')->name('index');
+	Route::get('/mexico_vs_japan', 'mexico_vs_japan')->name('mexico_vs_japan');
+	Route::get('/form', 'form')->name('form');
+	Route::get('/show', 'show')->name('show');
 });
 
 
 // 管理者側のコントローラー
+// ログインのメールとpasswordはDBに直接登録しておく
 Route::prefix('admin')
 ->middleware(['auth'])
 ->controller(AdminSportsShowController::class)
 ->name('admin.')
 ->group(function(){
 	Route::get('/', 'index')->name('index');
-	Route::get('/create', 'create')->name('index');
 });
 
 

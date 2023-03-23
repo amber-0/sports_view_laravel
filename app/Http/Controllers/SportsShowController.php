@@ -7,59 +7,64 @@ use Illuminate\Http\Request;
 
 class SportsShowController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        return view('user_index');
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
+	// 初期画面
+	public function index()
+	{
+			return view('user_sports_shows/user_index');
+	}
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
+	// メキシコvs日本の画面
+	public function mexico_vs_japan()
+	{
+		return view('user_sports_shows/mexico_vs_japan');
+	}
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(SportsShow $sportsShow)
-    {
-        //
-    }
+	// formの画面
+	public function form()
+	{
+		return view('user_sports_shows/form');
+	}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(SportsShow $sportsShow)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, SportsShow $sportsShow)
-    {
-        //
-    }
+	public function create()
+	{
+			//
+	}
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(SportsShow $sportsShow)
-    {
-        //
-    }
+
+	public function store(Request $request)
+	{
+			//
+	}
+
+
+	public function show(SportsShow $sportsShow)
+	{
+		return view('user_sports_shows/user_show');
+	}
+
+	/**
+	 * Show the form for editing the specified resource.
+	 */
+	public function edit(SportsShow $sportsShow)
+	{
+			//
+	}
+
+	/**
+	 * Update the specified resource in storage.
+	 */
+	public function update(Request $request, SportsShow $sportsShow)
+	{
+			//
+	}
+
+	/**
+	 * Remove the specified resource from storage.
+	 */
+	public function destroy(SportsShow $sportsShow)
+	{
+			//
+	}
 }

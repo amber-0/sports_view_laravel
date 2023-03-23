@@ -50,7 +50,7 @@
         <div class="lg:w-1/3 sm:w-1/2 p-4">
           <div class="flex relative">
             <!-- 画像サイズは600×360にする（大ちゃん画像と文章挿入） -->
-            <a href="/create.html">
+            <a href="{{ route('user.mexico_vs_japan') }}">
               <img alt="gallery" class="absolute inset-0 w-full h-full object-cover object-center" src="img/mexico_vs_japan.jpg">
               <div class="px-8 py-10 relative z-10 w-full border-4 border-gray-200 bg-white opacity-0 hover:opacity-100">
                 <h2 class="tracking-widest text-sm title-font font-medium text-yellow-500 mb-1">SEMIFINAL</h2>

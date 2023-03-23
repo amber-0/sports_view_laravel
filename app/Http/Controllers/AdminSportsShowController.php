@@ -12,7 +12,7 @@ class AdminSportsShowController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        return view('admin_sports_shows/dashboard');
     }
 
     /**
