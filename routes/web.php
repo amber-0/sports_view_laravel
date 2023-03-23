@@ -2,18 +2,33 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SportsShowController;
+use App\Http\Controllers\AdminSportsShowController;
 
 
-// ユーザー
-Route::get('/', function () {
-    return view('user_index');
+// ユーザー側のコントローラー
+// Route::get('/', function () {
+//     return view('user_index');
+// });
+
+Route::prefix('user')
+->controller(SportsShowController::class)
+->name('user.')
+->group(function(){
+	Route::get('/', 'index')->name('index');
 });
 
 
-// 管理者
-Route::get('/admin', function () {
-    return view('welcome');
+// 管理者側のコントローラー
+Route::prefix('admin')
+->middleware(['auth'])
+->controller(AdminSportsShowController::class)
+->name('admin.')
+->group(function(){
+	Route::get('/', 'index')->name('index');
+	Route::get('/create', 'create')->name('index');
 });
+
 
 
 Route::get('/dashboard', function () {
