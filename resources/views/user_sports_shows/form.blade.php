@@ -48,7 +48,11 @@
           </div>
           <div class="flex-1 text-right md:text-center">
             <h5 class="font-bold uppercase text-gray-500">総回答者数</h5>
-            <h3 class="font-bold text-3xl">249</h3>
+            <h3 class="font-bold text-3xl">
+              @foreach($sports_shows as $sports_show)
+              {{ $sports_show->count }}
+              @endforeach
+            </h3>
           </div>
         </div>
       </div>

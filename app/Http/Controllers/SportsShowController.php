@@ -24,7 +24,9 @@ class SportsShowController extends Controller
 	// formの画面（createの役割）
 	public function form()
 	{
-		return view('user_sports_shows/form');
+		$sports_shows = SportsShow::selectRaw('COUNT(id) as count')
+		->get();
+		return view('user_sports_shows/form',compact('sports_shows'));
 	}
 
 
@@ -54,7 +56,10 @@ class SportsShowController extends Controller
 
 	public function show(SportsShow $sportsShow)
 	{
-		return view('user_sports_shows/user_show');
+		$sports_shows = SportsShow::all('name','select_team','japan_score','mexico_score','cheer','yen','comment');
+		$count_nums = SportsShow::selectRaw('COUNT(id) as count')
+		->get();
+		return view('user_sports_shows/user_show', compact('count_nums','sports_shows'));
 	}
 
 	/**

@@ -89,7 +89,11 @@
                             </div>
                             <div class="flex-1 text-right md:text-center">
                                 <h5 class="font-bold uppercase text-gray-500">総回答者数</h5>
-                                <h3 class="font-bold text-3xl">249</h3>
+                                <h3 class="font-bold text-3xl">
+                                    @foreach($count_nums as $count_num)
+                                    {{ $count_num->count }}
+                                    @endforeach
+                                </h3>
                             </div>
                         </div>
                     </div>
@@ -312,21 +316,15 @@
 															</tr>
 														</thead>
 														<tbody>
+                                                            
+                                                            @foreach($sports_shows as $sports_show)
 															<tr>
-																<td class="px-4 py-3">大ちゃん</td>
-																<td class="px-4 py-3">ラーズ・ヌートバー</td>
-																<td class="px-4 py-3">ファンです。頑張ってください！</td>
+																<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ $sports_show->name }}</td>
+																<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ $sports_show->cheer }}</td>
+																<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">{{ $sports_show->comment }}</td>
 															</tr>
-															<tr>
-																<td class="border-t-2 border-gray-200 px-4 py-3">Pro</td>
-																<td class="border-t-2 border-gray-200 px-4 py-3">25 Mb/s</td>
-																<td class="border-t-2 border-gray-200 px-4 py-3">25 GB</td>
-															</tr>
-															<tr>
-																<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">Exclusive</td>
-																<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">48 Mb/s</td>
-																<td class="border-t-2 border-b-2 border-gray-200 px-4 py-3">120 GB</td>
-															</tr>
+                                                            @endforeach
+
 														</tbody>
 													</table>
 												</div>
