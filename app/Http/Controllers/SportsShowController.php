@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\SportsShow;
 use Illuminate\Http\Request;
+use App\Models\AdminSportsShow;
 
 class SportsShowController extends Controller
 {
@@ -20,7 +21,7 @@ class SportsShowController extends Controller
 		return view('user_sports_shows/mexico_vs_japan');
 	}
 
-	// formの画面
+	// formの画面（createの役割）
 	public function form()
 	{
 		return view('user_sports_shows/form');
@@ -35,7 +36,19 @@ class SportsShowController extends Controller
 
 	public function store(Request $request)
 	{
-			//
+			// dd($request);
+		SportsShow::create([
+			'name' => $request->name,
+			'select_team' =>$request->select_team,
+			'japan_score' => $request->japan_score,
+			'mexico_score' => $request->mexico_score,
+			'cheer' => $request->cheer,
+			'yen' => $request->yen,
+			'comment' => $request->comment,
+		]);
+
+		return to_route('user.show');
+
 	}
 
 

@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('sports_shows', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string('name',30);
+            $table->string('select_team',30)->nullable();
+            $table->tinyInteger('japan_score')->nullable();
+            $table->tinyInteger('mexico_score')->nullable();
+            $table->string('cheer',30)->nullable();
+            $table->integer('yen')->nullable();
+            $table->longText('comment')->nullable();
+            $table->timestamps();  
         });
     }
 
@@ -25,3 +32,4 @@ return new class extends Migration
         Schema::dropIfExists('sports_shows');
     }
 };
+

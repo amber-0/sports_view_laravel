@@ -13,8 +13,10 @@ Route::prefix('user')
 ->group(function(){
 	Route::get('/', 'index')->name('index');
 	Route::get('/mexico_vs_japan', 'mexico_vs_japan')->name('mexico_vs_japan');
-	Route::get('/form', 'form')->name('form');
+	Route::get('/form', 'form')->name('form'); //createの役割
+	Route::post('/', 'store')->name('store'); //ここの'/'はもしかしたら変更する必要あり？
 	Route::get('/show', 'show')->name('show');
+
 });
 
 
