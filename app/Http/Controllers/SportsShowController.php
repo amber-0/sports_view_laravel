@@ -56,10 +56,30 @@ class SportsShowController extends Controller
 
 	public function show(SportsShow $sportsShow)
 	{
+		// 全データ
 		$sports_shows = SportsShow::all('name','select_team','japan_score','mexico_score','cheer','yen','comment');
+		// カウント数
 		$count_nums = SportsShow::selectRaw('COUNT(id) as count')
 		->get();
-		return view('user_sports_shows/user_show', compact('count_nums','sports_shows'));
+		// 投げ銭の合計額
+		$yen_sums = SportsShow::selectRaw('SUM(yen) as sum')
+		->get();
+
+		// 円グラフ用データ
+		$predictions = SportsShow::selectRaw('select_team, count(*) as total')
+		->groupBy('select_team')
+		->get();
+		$labels = $predictions->pluck('select_team')->toArray();
+		$data = $predictions->pluck('total')->toArray();
+
+		// 棒グラフ用データ
+		$bar_graphs = SportsShow::selectRaw('cheer, count(*) as total')
+		->groupBy('cheer')
+		->get();
+		$bar_labels = $bar_graphs->pluck('cheer')->toArray();
+		$bar_data = $bar_graphs->pluck('total')->toArray();
+
+		return view('user_sports_shows/user_show', compact('sports_shows', 'count_nums', 'yen_sums', 'predictions', 'labels', 'data', 'bar_labels', 'bar_data'));
 	}
 
 	/**
